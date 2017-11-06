@@ -7,6 +7,7 @@
 //
 
 #import "ViewController.h"
+#import "TouchIDHelper.h"
 
 @interface ViewController ()
 
@@ -16,14 +17,29 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view, typically from a nib.
+    
+    self.view.backgroundColor = [UIColor whiteColor];
+    
+    
+    [TouchIDHelper postGetTouchID:^(NSInteger code, NSInteger error) {
+        
+        if (code == 0) {
+            NSLog(@"-----成功-----");
+        }
+        else
+        {
+            NSLog(@"-----code:%ld---error:%ld--",(long)code,(long)error);
+        }
+        
+    }];
+    
+    
 }
 
 
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
-}
+
+
+
 
 
 @end

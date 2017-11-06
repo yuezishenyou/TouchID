@@ -8,6 +8,7 @@
 
 #import "AppDelegate.h"
 #import "HHMainController.h"
+#import "ViewController.h"
 
 @interface AppDelegate ()
 
@@ -29,7 +30,7 @@
     
     self.window.backgroundColor = [UIColor whiteColor];
     
-    HHMainController *vc = [[HHMainController alloc]init];
+    ViewController  *vc = [[ViewController alloc]init];
     
     UINavigationController *navc = [[UINavigationController alloc]initWithRootViewController:vc];
     

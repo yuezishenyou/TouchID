@@ -16,7 +16,7 @@
 #define kIsSuort  @""
 
 
-typedef void(^TransLoginStateBlock)(void);
+typedef void(^TransLoginStateBlock)(NSInteger code, NSInteger error);
 
 @interface HHLoginController ()
 
@@ -282,8 +282,8 @@ typedef void(^TransLoginStateBlock)(void);
     
     [[NSUserDefaults standardUserDefaults] setObject:[NSNumber numberWithBool:YES] forKey:@"loginState"];
     
-    TouchIDHelper *helper = [TouchIDHelper manager];
-    helper.isLoginState = YES;
+    //TouchIDHelper *helper = [TouchIDHelper manager];
+    //helper.isLoginState = YES;
     
     __weak typeof(self ) weakSelf = self;
     
@@ -311,6 +311,75 @@ typedef void(^TransLoginStateBlock)(void);
             else
             {
                  NSLog(@"----指纹登录失败------");
+                
+                switch (error.code)
+                {
+                    case LAErrorAuthenticationFailed:
+                    {
+                        NSLog(@"授权失败");
+                    }
+                        break;
+                    case LAErrorUserCancel:
+                    {
+                        NSLog(@"用户取消验证Touch ID");
+                        
+                    }
+                        break;
+                    case LAErrorUserFallback:
+                    {
+                        [[NSOperationQueue mainQueue] addOperationWithBlock:^{
+                            NSLog(@"用户选择输入密码，切换主线程处理");
+                        }];
+                        
+                    }
+                        break;
+                    case LAErrorSystemCancel:
+                    {
+                        NSLog(@"取消授权，如其他应用切入，用户自主");
+                    }
+                        break;
+                    case LAErrorPasscodeNotSet:
+                    {
+                        NSLog(@"设备系统未设置密码");
+                    }
+                        break;
+                    case LAErrorTouchIDNotAvailable:
+                    {
+                        NSLog(@"设备未设置Touch ID");
+                    }
+                        break;
+                    case LAErrorTouchIDNotEnrolled:
+                    {
+                        NSLog(@"用户未录入指纹");
+                    }
+                        break;
+                        
+#if __IPHONE_OS_VERSION_MAX_ALLOWED >= __IPHONE_9_0
+                    case LAErrorTouchIDLockout:
+                    {
+                        NSLog(@"Touch ID被锁，需要用户输入密码解锁");
+                    }
+                        break;
+                    case LAErrorAppCancel:
+                    {
+                        NSLog(@"用户不能控制情况下APP被挂起");
+                    }
+                        break;
+                    case LAErrorInvalidContext:
+                    {
+                        NSLog(@"LAContext传递给这个调用之前已经失效"); // -10
+                    }
+                        break;
+#else
+#endif
+                    default:
+                    {
+                        [[NSOperationQueue mainQueue] addOperationWithBlock:^{
+                            NSLog(@"其他情况，切换主线程处理");
+                        }];
+                        break;
+                    }
+                }
             }
             
         }];

@@ -9,6 +9,7 @@
 #import "HHMainController.h"
 #import "HHLoginController.h"
 #import "HHAlertView.h"
+#import "TouchIDHelper.h"
 
 @interface HHMainController ()
 
@@ -22,6 +23,10 @@
     self.title = @"main";
     
     [self initSubViews];
+    
+    
+
+    
     
 }
 
