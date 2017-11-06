@@ -19,6 +19,7 @@
 		2D51604E1FAFFE29004907DB /* EVNHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D51604D1FAFFE29004907DB /* EVNHelper.m */; };
 		2D5160511FB00373004907DB /* HHAlertView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D5160501FB00373004907DB /* HHAlertView.m */; };
 		2D5160571FB00D2F004907DB /* TouchIDHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D5160561FB00D2F004907DB /* TouchIDHelper.m */; };
+		2D51605A1FB04765004907DB /* HHViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D5160591FB04765004907DB /* HHViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -43,6 +44,8 @@
 		2D5160501FB00373004907DB /* HHAlertView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HHAlertView.m; sourceTree = "<group>"; };
 		2D5160551FB00D2F004907DB /* TouchIDHelper.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TouchIDHelper.h; sourceTree = "<group>"; };
 		2D5160561FB00D2F004907DB /* TouchIDHelper.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TouchIDHelper.m; sourceTree = "<group>"; };
+		2D5160581FB04765004907DB /* HHViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HHViewController.h; sourceTree = "<group>"; };
+		2D5160591FB04765004907DB /* HHViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HHViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -106,6 +109,8 @@
 				2D5160471FAFF62B004907DB /* HHLoginController.h */,
 				2D5160481FAFF62B004907DB /* HHLoginController.m */,
 				2D51604A1FAFF717004907DB /* HHLoginController.xib */,
+				2D5160581FB04765004907DB /* HHViewController.h */,
+				2D5160591FB04765004907DB /* HHViewController.m */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -195,6 +200,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2D51605A1FB04765004907DB /* HHViewController.m in Sources */,
 				2D5160301FAFF5BF004907DB /* ViewController.m in Sources */,
 				2D51603B1FAFF5BF004907DB /* main.m in Sources */,
 				2D5160571FB00D2F004907DB /* TouchIDHelper.m in Sources */,
